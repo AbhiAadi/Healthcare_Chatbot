@@ -1,0 +1,5 @@
+pytesseract   ## Change the pytesseract file location according to your file directory
+ollama
+pydub
+speech_recognition
+
