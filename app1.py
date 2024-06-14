@@ -24,8 +24,10 @@ async def on_chat_start():
 
     # Run the processing and vectorization in a background task
     print(pdf.path)
-    pdf_text = await asyncio.to_thread(process_file, pdf.path, pdf.name)
-    await asyncio.to_thread(chromadb_load, pdf_text, persist_directory)
+    #pdf_text = await asyncio.to_thread(process_file, pdf.path, pdf.name)
+    #await asyncio.to_thread(chromadb_load, pdf_text, persist_directory)
+    pdf_text = process_file(pdf.path, pdf.name)
+    chromadb_load(pdf_text, persist_directory)
     
     await cl.Message(content=f"`{pdf.name}` uploaded and processed successfully!").send()
 

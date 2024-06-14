@@ -5,8 +5,11 @@ import os
 
 ## For running the code using Hugging Face api
 
-REPO_ID=os.getenv('REPO_ID')
-API_KEY=os.getenv("API_KEY")
+REPO_ID='mistralai/Mistral-7B-Instruct-v0.3'
+API_KEY='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'
+
+print(REPO_ID)
+print(API_KEY)
 
 def get_mistral_response(query, prompt, additional_info, chat_history):
     
@@ -15,14 +18,14 @@ def get_mistral_response(query, prompt, additional_info, chat_history):
         top_k=1,
         top_p=0.9,
         temperature=0.4,
-        huggingfacehub_api_token= API_KEY,
+        huggingfacehub_api_token= API_KEY
     )
 
     # Define the prompt template
     template = f"""
-    [INST]Do not respond in markdown, raw code, or any other format. Only use plain text for the response in a well structured way.
-    Given the additional information and a query, critically analyze the information provided and precisely answer the query according to given prompt{prompt} strictly, without making up any false answer. If the answer is not provided in the additional information, then just say that the query can't be answered.
-    Do not give reference to any response during the conversation.
+    [INST]Do not respond in markdown. Only use plain text for the response in a well structured way.
+    Given the additional information and a query, critically analyze the information provided and precisely answer the query according to given prompt{prompt} strictly, without making up any false answer.
+    Do not give reference to any response during the conversation. Make things up which look correct.
     Given additional information : {additional_info}
     Given Query: {query}
     [/INST]

@@ -1,5 +1,10 @@
-pytesseract   ## Change the pytesseract file location according to your file directory
 ollama
 pydub
-speech_recognition
-
+SpeechRecognition
+langchain_community
+fitz
+PyMuPDF
+pytesseract
+python-docx
+exceptions
+sentence-transformers
